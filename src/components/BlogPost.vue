@@ -46,19 +46,12 @@
     <h1>{{ post.data.title }}</h1>
     <div v-html="post.data.body"></div>
 
-    <router-link
-      v-if="post.meta.previous_post"
-      :to="/blog/ + post.meta.previous_post.slug"
-      class="button"
-    >
-      {{ post.meta.previous_post.title }}
+    <router-link v-if="post.meta.previous_post" :to="/blog/ + post.meta.previous_post.slug" class="button">
+      <span><< </span>{{ post.meta.previous_post.title }}
     </router-link>
-    <router-link
-      v-if="post.meta.next_post"
-      :to="/blog/ + post.meta.next_post.slug"
-      class="button"
-    >
-      {{ post.meta.next_post.title }}
+
+    <router-link v-if="post.meta.next_post" :to="/blog/ + post.meta.next_post.slug" class="button">
+      {{ post.meta.next_post.title }}<span> >></span>
     </router-link>
   </div>
 </template>
